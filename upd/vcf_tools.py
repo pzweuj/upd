@@ -96,10 +96,11 @@ class Variant(object):
             return info_dict
         for value in info.split(';'):
             vals = value.split('=')
-            if not len(vals) == 2:
-                info_dict[vals[0]] = True
-                continue
-            info_dict[vals[0]] = vals[1]
+            # if not len(vals) == 2:
+            #     info_dict[vals[0]] = True
+            #     continue
+            # info_dict[vals[0]] = vals[1]
+            info_dict[vals[0]] = value.lstrip(vals[0] + "=")
         return info_dict
     
     def __str__(self):
